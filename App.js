@@ -18,7 +18,9 @@ import {
   DatePickerIOS,
   requireNativeComponent,
   Alert,
-  Image
+  Image,
+  Animated,
+  Easing
 } from 'react-native';
 
 import ScratchCardView from './ScratchCardView';
@@ -34,13 +36,29 @@ import {
 
 
 
+
 const App = () => {
+
+
+  const animatedValue = new Animated.Value(0)
+
+
+  onScratched = () => {
+    Animated.timing(animatedValue, { toValue:1, easing:Easing.inOut, duration:300}).start();
+  }
+
+  let scale = animatedValue.interpolate({ inputRange:[0,0.5,1], outputRange:[1,2,1]})
+
+  setTimeout(()=>onScratched(), 4000);
+
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScratchCardView couponImage={require('./assets/drake3.png')}>
-          <View style={{ height:300 , width:300, backgroundColor:'pink' }} />
+          <View style={{ height:300 , width:300, justifyContent:'center', alignItems:'center' }} >
+            <Animated.Image source={require('./assets/drake3.png')} resizeMode="contain" style={{ height:300, width:300, transform:[{ scaleX:scale}, {scaleY:scale}] }}/>
+          </View>
         </ScratchCardView>
       </SafeAreaView>
     </Fragment>
