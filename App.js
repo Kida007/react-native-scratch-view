@@ -39,7 +39,9 @@ const App = () => {
     <Fragment>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ScratchCardView couponImage={require('./assets/drake3.png')}/>
+        <ScratchCardView couponImage={require('./assets/drake3.png')}>
+          <View style={{ height:300 , width:300, backgroundColor:'pink' }} />
+        </ScratchCardView>
       </SafeAreaView>
     </Fragment>
   );

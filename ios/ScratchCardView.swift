@@ -18,15 +18,7 @@ class ScratchCardView: UIView {
   @objc var couponImage:NSString = "NULL" {
     didSet {
       print(couponImage as String)
-      let mainImage = UIImage(contentsOfFile: couponImage as String)
-      
-      
-      mainImageView = UIImageView(image:mainImage)
-      
-      mainImageView.contentMode = .scaleAspectFit
-      
-      mainImageView.frame = CGRect(x:0,y:0,width:300,height:300)
-      self.addSubview(mainImageView)
+  
       self.addSubview(scratchImageView)
     }
     

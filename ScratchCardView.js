@@ -1,5 +1,5 @@
 import React from 'react';
-import { requireNativeComponent, Image } from 'react-native';
+import { requireNativeComponent, Image, StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 
@@ -13,7 +13,13 @@ class ScratchCardView extends React.Component {
         const couponImagePath = Image.resolveAssetSource(couponImage);
 
         return(
-            <NativeScratchCardView couponImage={couponImagePath.uri} style={{ height:300 , width:300}}/>
+            <View>
+                {this.props.children}
+                <View style={{ ...StyleSheet.absoluteFillObject}}>
+                    <NativeScratchCardView couponImage={couponImagePath.uri} style={{ height:300 , width:300}}/>
+                </View>
+            </View>
+            
         )
     }
 
