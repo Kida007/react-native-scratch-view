@@ -20,7 +20,7 @@
 		9F95EAE92D39D7D385729F88 /* libPods-nativeModules.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3137BF8B7557102108A5618 /* libPods-nativeModules.a */; };
 		C6F3208B8593CE1296D1F914 /* libPods-nativeModules-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C7ED89327E0940E8E4FA2 /* libPods-nativeModules-tvOSTests.a */; };
 		E0A49C4D9521735048DF66C6 /* libPods-nativeModules-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A541980AC62DD850126831 /* libPods-nativeModules-tvOS.a */; };
-		F561A2FE232312DC0094A30F /* pin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F561A2FD232312DC0094A30F /* pin.jpg */; };
+		F5412EBB23297506000DF278 /* pro.png in Resources */ = {isa = PBXBuildFile; fileRef = F5412EBA23297506000DF278 /* pro.png */; };
 		F561A300232314440094A30F /* drake3.png in Resources */ = {isa = PBXBuildFile; fileRef = F561A2FF232314440094A30F /* drake3.png */; };
 		F5A6D3D8231C5A4C00194FE6 /* CalenderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A6D3D7231C5A4C00194FE6 /* CalenderManager.m */; };
 		F5B997BF231F0EEA00FAF4F9 /* ScratchCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B997BE231F0EEA00FAF4F9 /* ScratchCardView.m */; };
@@ -73,7 +73,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		ED9283799897897FA8460AB2 /* Pods-nativeModules-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nativeModules-tvOS.release.xcconfig"; path = "Target Support Files/Pods-nativeModules-tvOS/Pods-nativeModules-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F41B3080BDFF54FDF79627E1 /* Pods-nativeModulesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nativeModulesTests.debug.xcconfig"; path = "Target Support Files/Pods-nativeModulesTests/Pods-nativeModulesTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F561A2FD232312DC0094A30F /* pin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pin.jpg; path = ../../../Desktop/pin.jpg; sourceTree = "<group>"; };
+		F5412EBA23297506000DF278 /* pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pro.png; path = ../../../Desktop/pro.png; sourceTree = "<group>"; };
 		F561A2FF232314440094A30F /* drake3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drake3.png; path = ../../../Desktop/drake3.png; sourceTree = "<group>"; };
 		F5A6D3D6231C58E200194FE6 /* CalenderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalenderManager.h; sourceTree = "<group>"; };
 		F5A6D3D7231C5A4C00194FE6 /* CalenderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalenderManager.m; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		13B07FAE1A68108700A75B9A /* re */ = {
 			isa = PBXGroup;
 			children = (
-				F561A2FD232312DC0094A30F /* pin.jpg */,
+				F5412EBA23297506000DF278 /* pro.png */,
 				F561A2FF232314440094A30F /* drake3.png */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -361,10 +361,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F561A2FE232312DC0094A30F /* pin.jpg in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				F561A300232314440094A30F /* drake3.png in Resources */,
+				F5412EBB23297506000DF278 /* pro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

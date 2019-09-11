@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -37,32 +37,39 @@ import {
 
 
 
-const App = () => {
+class App extends React.Component {
 
 
-  const animatedValue = new Animated.Value(0)
-
-
-  onScratched = () => {
-    Animated.timing(animatedValue, { toValue:1, easing:Easing.inOut, duration:300}).start();
+  constructor(props){
+    super(props)
+    this.animatedValue = new Animated.Value(0);
   }
 
-  let scale = animatedValue.interpolate({ inputRange:[0,0.5,1], outputRange:[1,2,1]})
 
-  setTimeout(()=>onScratched(), 4000);
+  onScratched = e => {
+    setTimeout(()=>Animated.spring(this.animatedValue, { toValue:1, easing:Easing.inOut,  useNativeDriver:true}).start(), 300)
+    }
 
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScratchCardView couponImage={require('./assets/drake3.png')}>
-          <View style={{ height:300 , width:300, justifyContent:'center', alignItems:'center' }} >
-            <Animated.Image source={require('./assets/drake3.png')} resizeMode="contain" style={{ height:300, width:300, transform:[{ scaleX:scale}, {scaleY:scale}] }}/>
+  render(){
+
+    const scale = this.animatedValue.interpolate({
+      inputRange: [0, 0.5, 1],
+      outputRange: [1,1.6,1],
+    });
+
+    return (
+      <SafeAreaView style={{ flex:1}}>
+        <StatusBar barStyle="dark-content" />
+          <View style={{ flex:1, justifyContent:'center', alignItems:'center'  }}>
+            <ScratchCardView couponImage={require('./assets/drake3.png')} onScratched={this.onScratched}>
+              <Animated.View style={{ transform:[{scaleX:scale}, {scaleY:scale}],height:300 , width:300, justifyContent:'center', alignItems:'center', backgroundColor:'#D8DADB', borderRadius:8}} >
+                <Animated.Text style={{fontSize:20 }}>{"You Have Won \n A 10x Gift \n \n \n - RN Scratch View"}</Animated.Text>
+              </Animated.View>
+            </ScratchCardView>
           </View>
-        </ScratchCardView>
       </SafeAreaView>
-    </Fragment>
-  );
+    );
+  }
 };
 
 const styles = StyleSheet.create({
