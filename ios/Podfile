@@ -34,8 +34,9 @@ target 'nativeModules' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'Kingfisher', '~> 4.0'
   pod 'ScratchCard', '~> 1.1.3'
-  pod 'SDWebImage', '~> 5.0'
+  pod 'PINRemoteImage', '3.0.0-beta.14'
   pod "MCScratchImageView"
 
   

@@ -10,14 +10,21 @@ class ScratchCardView extends React.Component {
 
     render(){
 
-        const { couponImage, onScratched } = this.props ; 
+        const { couponImage, onScratched, style , autoScratchProgress, spotRadius} = this.props ; 
         const couponImagePath = Image.resolveAssetSource(couponImage);
 
         return(
             <View>
-                {this.props.children}
+                <View style={{ height:style.height, width:style.width}}>
+                    {this.props.children}
+                </View>
                 <View style={{ ...StyleSheet.absoluteFillObject}}>
-                    <NativeScratchCardView onScratched={onScratched} couponImage={couponImagePath.uri} style={{ height:300 , width:300}}/>
+                    <NativeScratchCardView
+                        onScratched={onScratched} 
+                        style={{ height:style.height, width:style.width}}
+                        data={{ height:style.height, width: style.width, uri:couponImagePath.uri,spotRadius }}
+                        autoScratchProgress={autoScratchProgress}
+                    />
                 </View>
             </View>
             

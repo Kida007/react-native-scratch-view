@@ -20,8 +20,11 @@ import {
   Alert,
   Image,
   Animated,
-  Easing
+  Easing,
 } from 'react-native';
+
+import FastImage from 'react-native-fast-image'
+
 
 import ScratchCardView from './ScratchCardView';
 
@@ -61,11 +64,17 @@ class App extends React.Component {
       <SafeAreaView style={{ flex:1}}>
         <StatusBar barStyle="dark-content" />
           <View style={{ flex:1, justifyContent:'center', alignItems:'center'  }}>
-            <ScratchCardView couponImage={require('./assets/drake3.png')} onScratched={this.onScratched}>
-              <Animated.View style={{ transform:[{scaleX:scale}, {scaleY:scale}],height:300 , width:300, justifyContent:'center', alignItems:'center', backgroundColor:'#D8DADB', borderRadius:8}} >
-                <Animated.Text style={{fontSize:20 }}>{"You Have Won \n A 10x Gift \n \n \n - RN Scratch View"}</Animated.Text>
+             <ScratchCardView 
+                style={{ height:300, width:300 }} 
+                couponImage={require('./assets/pin.jpg')} 
+                onScratched={this.onScratched} 
+                spotRadius={25} 
+                autoScratchProgress={0.9}
+              >
+              <Animated.View style={{ transform:[{scaleX:scale}, {scaleY:scale}],flex:1, justifyContent:'center', alignItems:'center', backgroundColor:'#D8DADB', borderRadius:8}} >
+                <Animated.Text style={{fontSize:20 }}>{"Thanks for using a \n A 10x Coin \n \n \n - RN Scratch View"}</Animated.Text>
               </Animated.View>
-            </ScratchCardView>
+            </ScratchCardView> 
           </View>
       </SafeAreaView>
     );

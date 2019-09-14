@@ -8,33 +8,49 @@
 
 import ScratchCard
 import MCScratchImageView
+import Kingfisher
+
+
 
 var mainImageView:UIImageView!
 var scratchImageView:MCScratchImageView!
 
 
-
-//
-//class ScratchCardViewController: UIViewController {
-//    @objc var onScratched: RCTDirectEventBlock?
-//  
-//    override func viewDidLoad() {
-//      
-//    }
-//    @objc func sendUpdate() {
-//        if onScratched != nil {
-//          onScratched!(["scratched": true])
-//        }
-//      }
-//}
-
 class ScratchCardView: UIView,MCScratchImageViewDelegate {
   
   @objc var onScratched: RCTDirectEventBlock?
   
-  @objc var couponImage:NSString = "NULL" {
+  @objc var autoScratchProgress:CGFloat = 0.8 {
+    
+    didSet{
+      print("auto")
+      print(autoScratchProgress)
+    }
+    
+  }
+  
+  
+  @objc var data:NSDictionary = [:] {
     didSet {
-      print(couponImage as String)
+      
+      let url = URL(string: data["uri"] as! String)
+      
+      let resource = ImageResource(downloadURL: url!)
+
+      
+      scratchImageView = MCScratchImageView(frame:CGRect(x:0,y:0,width:data["width"] as! Double ,height:data["height"]as! Double))
+
+      KingfisherManager.shared.retrieveImage(with:  resource, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+        
+        let spotRadius = self.data["spotRadius"] as! CGFloat
+        
+        scratchImageView.setMaskImage(image!, spotRadius: spotRadius)
+
+      })
+      
+    
+      scratchImageView.delegate = self
+
       self.layer.cornerRadius = 8
       self.layer.masksToBounds = true
       self.addSubview(scratchImageView)
@@ -46,10 +62,7 @@ class ScratchCardView: UIView,MCScratchImageViewDelegate {
   
   override init(frame: CGRect){
     super.init(frame:frame)
-    scratchImageView = MCScratchImageView(frame:CGRect(x:0,y:0,width:300,height:300))
-    scratchImageView.setMaskImage(UIImage(named:"pro.png")!, spotRadius: 40)
-    scratchImageView.delegate = self
-    
+
   }
   
   
@@ -61,7 +74,7 @@ class ScratchCardView: UIView,MCScratchImageViewDelegate {
   
   func mcScratchImageView(_ mcScratchImageView: MCScratchImageView, didChangeProgress progress: CGFloat) {
     print("Progress did changed: " + String(format: "%.2f", progress))
-    if (progress >= 0.5) {
+    if (progress >= autoScratchProgress) {
       mcScratchImageView.scratchAll()
       if onScratched != nil {
         onScratched!(["scratched":true])
