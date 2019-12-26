@@ -63,7 +63,7 @@ import com.android.build.OutputFile
  *   // by default the gradle tasks are skipped if none of the JS files or assets change; this means
  *   // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
  *   // date; if you have any other folders that you want to ignore for performance reasons (gradle
- *   // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
+ *   // indexes the entire tree), add them here. , if you have JS files in android/
  *   // for example, you might want to remove it from here.
  *   inputExcludes: ["android/**", "ios/**"],
  *
@@ -190,6 +190,11 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.github.cooltechworks:ScratchView:v1.1"
+    implementation 'com.github.AnupKumarPanwar:ScratchView:1.2'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
 
     if (enableHermes) {
       def hermesPath = "../../node_modules/hermesvm/android/";

@@ -26,7 +26,9 @@ import {
 import FastImage from 'react-native-fast-image'
 
 
-import ScratchCardView from './ScratchCardView';
+//import ScratchCardView from './ScratchCardView';
+
+const ScratchView = requireNativeComponent('ScratchView');
 
 import {
   Header,
@@ -39,12 +41,12 @@ import {
 
 
 
-
 class App extends React.Component {
 
 
   constructor(props){
     super(props)
+    NativeModules.ToastExample.show("Mogo", NativeModules.ToastExample.LONG)
     this.animatedValue = new Animated.Value(0);
   }
 
@@ -64,8 +66,8 @@ class App extends React.Component {
       <SafeAreaView style={{ flex:1}}>
         <StatusBar barStyle="dark-content" />
           <View style={{ flex:1, justifyContent:'center', alignItems:'center'  }}>
-             <ScratchCardView 
-                style={{ height:300, width:300 }} 
+             {/* <ScratchCardView 
+                style={{ height:200, width:300 }} 
                 couponImage={require('./assets/pin.jpg')} 
                 onScratched={this.onScratched} 
                 spotRadius={25} 
@@ -74,7 +76,8 @@ class App extends React.Component {
               <Animated.View style={{ transform:[{scaleX:scale}, {scaleY:scale}],flex:1, justifyContent:'center', alignItems:'center', backgroundColor:'#D8DADB', borderRadius:8}} >
                 <Animated.Text style={{fontSize:20 }}>{"Thanks for using a \n A 10x Coin \n \n \n - RN Scratch View"}</Animated.Text>
               </Animated.View>
-            </ScratchCardView> 
+            </ScratchCardView>  */}
+            <ScratchView style={{ height:300, width:300}} couponImage={Image.resolveAssetSource(require('./assets/pin.jpg')).uri}/>
           </View>
       </SafeAreaView>
     );
